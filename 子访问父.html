@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <cpn></cpn>
+  </div>
+  <template id="cpn">
+    <div>
+      <h1>标题</h1>
+      <p>内容</p>
+      <button @click="btnClick">按钮</button>
+    </div>
+  </template>
+  <script>
+    //创建Vue实例,得到 ViewModel
+    const cpn = Vue.extend({
+      template: '#cpn',
+      data() {
+        return {}
+      },
+      methods: {
+        btnClick() {
+          console.log(this.$parent.message)
+          this.$parent.pClick()
+        }
+      }
+    })
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        message: '来自父组件的问候'
+      },
+      methods: {
+        pClick() {
+          console.log('父组件的pClick方法被调用')
+        }
+      },
+      components: {
+        cpn
+      }
+    });
+  </script>
+</body>
+
+</html>

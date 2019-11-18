@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id ="app">
+        <cpn v-show="isShow"></cpn>
+    </div>
+    <template id="cpn">
+        <div>
+            <h1>标题</h1>
+            <p>内容</p>
+        </div>
+    </template>
+    <script>
+      //创建Vue实例,得到 ViewModel
+      const vm = new Vue({
+        el: '#app',
+        data: {
+            isShow:true
+        },
+        methods: {},
+        components:{
+            cpn:{
+                template:'#cpn',
+                data(){
+                    return {
+                        isShow:false
+                    }
+                }
+            }
+        }
+      });
+    </script>
+  </body>
+
+</html>

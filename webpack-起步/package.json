@@ -1,0 +1,15 @@
+{
+  "name": "webpackdemo",
+  "version": "1.0.0",
+  "description": "webpack的dmeo",
+  "main": "main.js",
+  "scripts": {
+    "test": "test",
+    "build": "webpack"
+  },
+  "author": "travel_bug",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^3.6.0"
+  }
+}

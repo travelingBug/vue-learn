@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <cpn>
+      <h1 slot="aaa">aaaa使用插槽</h1>
+      <h1 slot="bbb">使用bbb插槽</h1>
+      <h1 slot="ccc">使用ccc插槽</h1>
+      <h1 slot="aaa">继续使用aaa插槽</h1>
+      <template v-slot:aaa>
+        <h1>使用template方式使用插槽aaa</h1>
+      </template>
+    </cpn>
+  </div>
+  <script type="text/x-template" id="cpn">
+        <div>
+            <h1>标题</h1>
+             <p>内容</p>
+             <slot name='aaa'></slot>   
+             <slot name='bbb'></slot>   
+             <slot name='ccc'></slot>   
+        </div>
+    </script>
+  <script>
+    //创建Vue实例,得到 ViewModel
+    const vm = new Vue({
+      el: '#app',
+      data: {},
+      methods: {},
+      components: {
+        cpn: {
+          template: '#cpn'
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

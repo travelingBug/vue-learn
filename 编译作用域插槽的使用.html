@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id ="app">
+        <cpn>
+            <template slot-scope="slot"  slot="bbb">
+                <span v-for="item in slot.data">{{item}} -</span> 
+            </template>
+        </cpn>    
+    </div>
+    <template id="cpn">
+        <div>
+        <slot :data="devLanguage" name='aaa'>
+            <ul>
+                <li v-for="item in devLanguage" :key="item">{{item}}</li>
+            </ul>
+        </slot>
+        <slot :data="devLanguage" name='bbb'>
+                <ul>
+                    <li v-for="item in devLanguage" :key="item">{{item}}</li>
+                </ul>
+        </slot>
+        </div>
+    </template>
+    <script>
+      //创建Vue实例,得到 ViewModel
+      const vm = new Vue({
+        el: '#app',
+        data: {},
+        methods: {},
+        components:{
+            cpn:{
+                template:'#cpn',
+                data(){
+                    return {
+                        devLanguage:['Java','JavaScript','C++','Go']
+                    }
+                }
+            }
+        }
+      });
+    </script>
+  </body>
+
+</html>

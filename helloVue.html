@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+ <head>
+
+    <title>Vue 渐进式的框架</title>
+    <meta charset="UTF-8"/>
+    <meta content="text/html"/>
+ </head>
+<body>
+    <div id="app">{{message}}</div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const  app  = new Vue({
+            el:'#app',
+            data:{
+                message:'你好，VUE！'
+            }
+        })
+    </script>
+</body>
+</html>

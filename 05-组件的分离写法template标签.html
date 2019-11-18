@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id ="app"> 
+        <cpn></cpn>
+    </div>
+    <template id="cpn">
+        <div>
+            <h1>我是一个标题</h1>
+            <p>内容……</p>
+        </div>
+    </template>
+
+    <script>
+      const cpn = Vue.extend({
+          template:'#cpn'
+      })
+      Vue.component('cpn',cpn)
+      //创建Vue实例,得到 ViewModel
+      const vm = new Vue({
+        el: '#app',
+        data: {},
+        methods: {}
+      });
+    </script>
+  </body>
+
+</html>
